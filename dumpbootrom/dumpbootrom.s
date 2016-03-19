@@ -40,8 +40,8 @@
 
   bl(init_uart);
 
-  movi(r0, 0x60000000);
-  movi(r1, 0x60008000);
+  movi(r0, 0x60000000);//0x60000000
+  movi(r1, 0x60010000);//0x60008000
   bl(hexdump);
 
 declare(loop);
@@ -96,7 +96,7 @@ label(delay2);
   movi(r1, AUX_MU_MCR_REG); movi(r0, 0); st(r0, r1);
   movi(r1, AUX_MU_IER_REG); movi(r0, 0); st(r0, r1);
   movi(r1, AUX_MU_IIR_REG); movi(r0, 0xC6); st(r0, r1);
-  movi(r1, AUX_MU_BAUD_REG); movi(r0, ((SYSTEM_CLOCK/(TARGET_BAUD_RATE*8))-1)); st(r0, r1);
+  movi(r1, AUX_MU_BAUD_REG); movi(r0, 0x6B); st(r0, r1); //((SYSTEM_CLOCK/(TARGET_BAUD_RATE*8))-1)
   movi(r1, AUX_MU_LCR_REG); movi(r0, 0x03); st(r0, r1);
   movi(r1, AUX_MU_CNTL_REG); movi(r0, 3); st(r0, r1);
   rts();
