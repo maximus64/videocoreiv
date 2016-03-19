@@ -72,6 +72,9 @@ class vciv_processor_t(idaapi.processor_t):
   }
   return_codes = [ '\x5a\x00' ]
 
+  #maximus: o_last not available in ida 6.9
+  o_last = o_idpspec5+1
+
   o_temp0 = o_last+1
   o_temp1 = o_last+2
   o_temp2 = o_last+3
